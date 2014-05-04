@@ -42,3 +42,4 @@ gem 'devise'
 gem 'kaminari'
 
 gem "paperclip", "~> 3.5.3"
+gem 'populator'
