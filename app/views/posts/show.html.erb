@@ -7,10 +7,9 @@
 	</tr>
 	<tr>
 		<th colspan="2">
-			<% if current_user == @post.user %>
+			<% if current_user == @post.user || (current_user.is_admin && cookies['admin_mode'] == 'true') %>
 				<%= link_to "Update", edit_demo_forum_post_path(params[:demo_forum_id], @post) %>
 				<%= link_to "Delete", demo_forum_post_path(params[:demo_forum_id], @post), :method=> :delete %>
-				
 			<% end %>
 			<%= image_tag @post.file.url %>
 		</th>

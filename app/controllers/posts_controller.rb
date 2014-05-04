@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 	
 	private
 	def check_current_user
-		if current_user != @post.user
+		if (current_user != @post.user && !(current_user.is_admin && cookies['admin_mode'] == 'true'))
 			flash['alert'] = "you are not allowed to perform this operation"
 			redirect_to demo_forum_posts_path
 		end

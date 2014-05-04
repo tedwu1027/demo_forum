@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
+	#Windows : refer to ImageMagicK directory
 	Paperclip.options[:command_path] = "M:/Program Files/ImageMagick-6.8.9-Q16"
+	
 	validates_presence_of :title, :content
 	belongs_to :demo_forum
 	belongs_to :user

@@ -1,4 +1,8 @@
 <% if current_user %>
+		<% #true/false in cookies is not boolean Type %>
+		<% if (cookies['admin_mode'] == 'true' && current_user.is_admin) %>
+			<%= link_to('登出管理者模式', :controller => "admin/demo_forums", :action =>"quit_admin_mode") %> |
+		<% end %>
        <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
      <%= link_to('修改密碼', edit_registration_path(:user)) %>
    <% else %>

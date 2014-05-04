@@ -14,7 +14,17 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :demo_forums do
-	resources :posts, :posts
+	resources :posts
+  end
+  
+  namespace :admin do
+	get '/' => '/admin/demo_forums#enter_admin_mode'
+	get '/quit' => '/admin/demo_forums#quit_admin_mode'
+       #Directs /admin/products/* to Admin::ProductsController
+       # (app/controllers/admin/products_controller.rb)
+    #resources :demo_forums do
+	#	resources :posts
+	#end
   end
 
   # Example resource route with options:
