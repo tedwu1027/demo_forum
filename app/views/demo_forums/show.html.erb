@@ -1,0 +1,7 @@
+<table>
+	<tr><th>Title</th><th>Date</th></tr>
+	<% @posts.each do |post| %>
+		<tr><td><%= post.title %></td><td><%= post.updated_at %></td></tr>
+	<% end %>
+	<%= demo_forum_posts_path(1) %>
+</table>

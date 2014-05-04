@@ -1,0 +1,2 @@
+module DemoForumsHelper
+end

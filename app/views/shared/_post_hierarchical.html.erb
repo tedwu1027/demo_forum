@@ -1,0 +1,13 @@
+<div> 
+<% if forum %>
+	<%= link_to "Demo", demo_forums_path %> ->
+	<% if post %>
+		<%= link_to forum.name, demo_forum_posts_path %> ->
+		<%= post.title %>
+	<% else %>
+		<%= forum.name %>
+	<% end %>
+<% else %>
+	<%= "Demo" %>
+<% end %>
+</div>

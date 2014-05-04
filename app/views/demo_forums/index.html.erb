@@ -1,0 +1,7 @@
+<%= render :partial => 'shared/user_layout' %>
+<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+<ul>
+	<% @forums.each do |f| %>
+	<li><%=link_to f.name, demo_forum_posts_path(f.id) %></li>
+	<% end %>
+</ul>

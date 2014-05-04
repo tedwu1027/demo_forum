@@ -1,0 +1,20 @@
+<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+<% link_to "back to main", demo_forums_path %> <%= link_to "new post", new_demo_forum_post_path(:page => params[:page]) %>
+<%= paginate @posts %>
+
+<div>There are total <%= @posts.total_count %> posts in this forum</div>
+<table>
+	<tr><th>Title</th><th>Update Time</th></tr>
+	<% @posts.each do |post| %>
+		<tr>
+				<% if true %>
+			<td>
+				<%= link_to post.title, demo_forum_post_path(params[:demo_forum_id], post.id) %>
+			</td>
+				<% end %>
+			<td>
+				<%= post.created_at.strftime("%d %b, %Y %I:%M %p") %>
+			</td>
+		</tr>
+	<% end %>
+</table>

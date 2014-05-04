@@ -1,0 +1,23 @@
+<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+
+<table>
+	<tr>
+		<th><%= @post.title %></th>
+		<th>Post Time: <%= @post.created_at.strftime("%d %b, %Y %I:%M %p") %></th>
+	</tr>
+	<tr>
+		<th colspan="2">
+			<% if current_user == @post.user %>
+				<%= link_to "Update", edit_demo_forum_post_path(params[:demo_forum_id], @post) %>
+				<%= link_to "Delete", demo_forum_post_path(params[:demo_forum_id], @post), :method=> :delete %>
+				
+			<% end %>
+			<%= image_tag @post.file.url %>
+		</th>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= simple_format(@post.content) %>
+		</td>
+	</tr>
+</table>

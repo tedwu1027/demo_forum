@@ -1,0 +1,14 @@
+<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+
+<%= form_for @post, :url => demo_forum_posts_path do |f| %>
+	<%= render :partial => 'form', :locals => {:f => f, :submit_text => "Create"} %>
+<% end %>
+
+
+<% if @post.errors.any? %>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
