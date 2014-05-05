@@ -7,7 +7,11 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="/">Demo Forum</a>
+	  <a class="navbar-brand" href="/">Demo Forum
+		<% if (cookies['admin_mode'] == 'true' && current_user.is_admin) %>
+			<%= "(管理者模式)" %>
+		<% end %>
+	  </a>
 	</div>
 	<div class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
