@@ -6,8 +6,8 @@
 
 * Usage
 	- bundle
-	- <tt>rake dev:build</tt>
-	- <tt>rake db:seed</tt>
-	- <tt>rake dev:fake</tt>
-	- <tt>rails server</tt>
+	- rake dev:build
+	- rake db:seed
+	- rake dev:fake
+	- rails server
 	
