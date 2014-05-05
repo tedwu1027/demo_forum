@@ -10,4 +10,12 @@
 	- rake db:seed
 	- rake dev:fake
 	- rails server
+
+* Default Setup
+	- Admin Account:
+	admin@demo.com / 11111111
 	
+	- Admin Mode:
+	http:/localhost/admin
+
+==
