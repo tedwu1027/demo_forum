@@ -1,9 +1,10 @@
 <%= render :partial => 'shared/user_layout' %>
-<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
-<ul>
-	<% @forums.each do |f| %>
-	<li><%=link_to f.name, demo_forum_posts_path(f.id) %></li>
-	<% end %>
-</ul>
-
+<%= paginate @forums %>
+<div class="container-fluid">
+	<div class="list-group">
+		<% @forums.each do |f| %>
+			<%=link_to f.name, demo_forum_posts_path(f.id), {:class=>"list-group-item"} %>
+		<% end %>
+	</div>
+</div>
 

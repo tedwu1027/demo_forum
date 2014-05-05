@@ -1,20 +1,30 @@
+<%= render :partial => 'shared/user_layout' %>
+<% if false %>
 <%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
-<% link_to "back to main", demo_forums_path %> <%= link_to "new post", new_demo_forum_post_path(:page => params[:page]) %>
-<%= paginate @posts %>
+<% end %>
 
-<div>There are total <%= @posts.total_count %> posts in this forum</div>
-<table>
-	<tr><th>Title</th><th>Update Time</th></tr>
-	<% @posts.each do |post| %>
-		<tr>
-				<% if true %>
-			<td>
-				<%= link_to post.title, demo_forum_post_path(params[:demo_forum_id], post.id) %>
-			</td>
-				<% end %>
-			<td>
-				<%= post.created_at.strftime("%d %b, %Y %I:%M %p") %>
-			</td>
-		</tr>
-	<% end %>
-</table>
+
+<div class="container-fluid">
+	
+	<h2><%= @forum.name %></h2>
+	<div><%= paginate @posts %></div>
+	<%= button_to "new post", new_demo_forum_post_path(:page => params[:page]), :method=>:get %>
+	<span class="text-muted">There are total <%= @posts.total_count %> posts in this forum</span>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<tr><th>Title</th><th>Update Time</th></tr>
+			<% @posts.each do |post| %>
+				<tr>
+						<% if true %>
+					<td>
+						<%= link_to post.title, demo_forum_post_path(params[:demo_forum_id], post.id) %>
+					</td>
+						<% end %>
+					<td>
+						<%= post.created_at.strftime("%d %b, %Y %I:%M %p") %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

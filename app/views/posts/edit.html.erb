@@ -1,13 +1,14 @@
-<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+<%= render :partial => 'shared/user_layout' %>
+<div class="container-fluid">
+	<%= form_for @post, :url => demo_forum_post_path(params[:demo_forum_id], @post), :method=>:put do |f| %>
+		<%= render :partial => 'form', :locals => {:f => f, :submit_text => "Update"} %>
+	<% end %>
 
-<%= form_for @post, :url => demo_forum_post_path(params[:demo_forum_id], @post), :method=>:put do |f| %>
-	<%= render :partial => 'form', :locals => {:f => f, :submit_text => "Update"} %>
-<% end %>
-
-<% if @post.errors.any? %>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-<% end %>
+	<% if @post.errors.any? %>
+		  <ul>
+		  <% @post.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		  <% end %>
+		  </ul>
+	<% end %>
+</div>

@@ -1,6 +1,6 @@
-<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+<%= render :partial => 'shared/user_layout' %>
 
-<%= form_for @post, :url => demo_forum_posts_path do |f| %>
+<%= form_for @post, :url => demo_forum_posts_path, :html => {:class => 'form-style'} do |f| %>
 	<%= render :partial => 'form', :locals => {:f => f, :submit_text => "Create"} %>
 <% end %>
 

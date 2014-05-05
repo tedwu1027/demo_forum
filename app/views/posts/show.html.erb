@@ -1,24 +1,16 @@
-<%= render :partial => 'shared/post_hierarchical', :locals => {:post => @post, :forum => @forum} %>
+<%= render :partial => 'shared/user_layout' %>
+<div class="container-fluid">
+	<h2><%= @post.title %></h2>
+	<span class="text-muted"><%= @post.created_at.strftime("%d %b, %Y %I:%M %p") %></span>
+	<div>
+		<% if current_user != nil && (current_user == @post.user || (current_user.is_admin && cookies['admin_mode'] == 'true')) %>
+			<%= link_to "Update", edit_demo_forum_post_path(params[:demo_forum_id], @post) %>
+			<%= link_to "Delete", demo_forum_post_path(params[:demo_forum_id], @post), :method=> :delete %>
+		<% end %>
+		<% if @post.file.exists? %>
+				<%= link_to "File", @post.file.url(:original, false) %>
+		<% end %>
+	</div>
 
-<table>
-	<tr>
-		<th><%= @post.title %></th>
-		<th>Post Time: <%= @post.created_at.strftime("%d %b, %Y %I:%M %p") %></th>
-	</tr>
-	<tr>
-		<th colspan="2">
-			<% if current_user != nil && (current_user == @post.user || (current_user.is_admin && cookies['admin_mode'] == 'true')) %>
-				<%= link_to "Update", edit_demo_forum_post_path(params[:demo_forum_id], @post) %>
-				<%= link_to "Delete", demo_forum_post_path(params[:demo_forum_id], @post), :method=> :delete %>
-			<% end %>
-			<% if @post.file.exists? %>
-			<%= link_to "File", @post.file.url(:original, false) %>
-			<% end %>
-		</th>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<%= simple_format(@post.content) %>
-		</td>
-	</tr>
-</table>
+	<%= simple_format(@post.content) %>
+</div>

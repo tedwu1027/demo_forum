@@ -1,4 +1,4 @@
-<table>
+<table class="table table-striped">
 	<tr>
 		<td>
 			<%= f.label :title, "Title" %>
@@ -12,23 +12,18 @@
 			<%= f.label :content, "Content" %>
 		</td>
 		<td>
-			<%= f.text_area :content %>
+			<%= f.text_area :content, :style => "width:100%;min-height:300px;" %>
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<%= f.file_field :file %>
-		</td>
-		<td>
-			
+		
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<%= f.submit submit_text %>
-		</td>
-		<td>
-			
 		</td>
 	</tr>
 </table>
